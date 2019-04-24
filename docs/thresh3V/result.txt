@@ -1,0 +1,11 @@
+SubID Match1 Score1 Match2 Score2 Match3 Score3
+/home/vanessa/Desktop/test/1000804.ica/stats/stats thresh_zstat6.nii.gz 0.449107363107 thresh_zstat3.nii.gz 0.330594957544 thresh_zstat15.nii.gz 0.0138774314265 
+/home/vanessa/Desktop/test/1099481.ica/stats/stats thresh_zstat3.nii.gz 0.832666638571 thresh_zstat13.nii.gz 0.593065350486 thresh_zstat5.nii.gz 0.590048403005 
+/home/vanessa/Desktop/test/1127915.ica/stats/stats thresh_zstat4.nii.gz 0.649588779362 thresh_zstat7.nii.gz 0.640249949872 thresh_zstat3.nii.gz 0.425200968962 
+/home/vanessa/Desktop/test/1187766.ica/stats/stats thresh_zstat1.nii.gz 0.654857203114 thresh_zstat23.nii.gz 0.519339792592 thresh_zstat8.nii.gz 0.271640420541 
+/home/vanessa/Desktop/test/1283494.ica/stats/stats thresh_zstat8.nii.gz 0.936793645784 thresh_zstat6.nii.gz 0.563526285565 thresh_zstat15.nii.gz 0.278757451704 
+/home/vanessa/Desktop/test/1320247.ica/stats/stats thresh_zstat4.nii.gz 1.07938262761 thresh_zstat7.nii.gz 0.589264390481 thresh_zstat16.nii.gz 0.443494321771 
+/home/vanessa/Desktop/test/1435954.ica/stats/stats thresh_zstat22.nii.gz 1.48296416625 thresh_zstat4.nii.gz 0.732283410002 thresh_zstat5.nii.gz 0.544805655005 
+/home/vanessa/Desktop/test/1471736.ica/stats/stats thresh_zstat8.nii.gz 1.46882972212 thresh_zstat20.nii.gz 0.680777477918 thresh_zstat16.nii.gz 0.650386908652 
+/home/vanessa/Desktop/test/1511464.ica/stats/stats thresh_zstat22.nii.gz 0.757254218293 thresh_zstat16.nii.gz 0.680558534832 thresh_zstat5.nii.gz 0.661352676615 
+/home/vanessa/Desktop/test/1567356.ica/stats/stats thresh_zstat8.nii.gz 0.967238756969 thresh_zstat4.nii.gz 0.858659025236 thresh_zstat3.nii.gz 0.766265505827 

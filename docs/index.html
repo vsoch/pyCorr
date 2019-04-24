@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>pyCorr</title>
+
+  
+</head><body>
+<span style="font-family: Courier New,Courier,monospace;">Python
+Template Matching Script Test</span><br>
+
+<br>
+
+The goal is to have a <a href="pyCorr.py" target="_blank">method</a>
+for matching group functional networks to the most similar individual
+network, represented by sharing the most overlap in activation, and
+lack of activation.<br>
+
+To test the accuracy of this method, I have done the following:<br>
+
+<br>
+
+<span style="font-weight: bold;">1)</span> Completed individual ICA
+runs for the NYU10 set, to be matched with <a href="#GROUPNET">group
+networks </a>from the same group.<br>
+
+<span style="font-weight: bold;">2)</span> Tested two methods (<a href="pyCorr.py" target="_blank">1</a>,<a href="pyCorr_Ksmethod.py">2</a>)
+to match individual networks to group networks<br>
+
+<span style="font-weight: bold;">3)</span> Created <a href="pyCorrPrint.py" target="_blank">results report script</a> to <a href="#Results_Reports">visualize results</a><br>
+
+<span style="font-weight: bold;">4)</span> Would like to talk about two
+methods, and best way to create a "gold standard" to evaluate script
+performance and methods.<br>
+
+<br>
+
+<br>
+
+<span style="font-family: Courier New,Courier,monospace;"><a name="GROUPNET"></a>Group Functional Networks<br>
+<br>
+1&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; 2&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 3<br>
+</span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_1_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_2_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_3_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">4 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; 5 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 6</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_4_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_5_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_6_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">7 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; 8 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 9</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_7_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_8_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_9_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">10 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 11 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 12</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_10_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_11_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_12_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">13 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 14 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 15</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_13_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_14_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_15_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">16 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 17 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 18</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_16_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_17_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_18_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">19 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 20 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 21</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_19_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_20_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_21_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">22 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 23 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 24</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_22_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_23_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_24_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">25 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 26 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 27</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_25_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_26_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_27_thresh.png"></span>
+<span style="font-family: Courier New,Courier,monospace;">28 &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; 29 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 30</span><br>
+
+<span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_28_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_29_thresh.png"></span><span style="font-family: Courier New,Courier,monospace;"></span><span style="font-family: Courier New,Courier,monospace;"><img style="width: 400px; height: 230px;" alt="" src="IC_30_thresh.png"><br>
+<br>
+<a name="Results_Reports"></a>Results Reports<br>
+<span style="font-weight: bold;"><br>
+Method 1<br>
+</span><font size="+1"><span style="font-family: monospace;"></span></font></span><br>
+1) Identify <a href="index.html#Results_Reports"></a>voxels in template<br>
+
+
+2) Convert to MNI coordinates<br>
+3) Look for activation in these voxels of each component to match.&nbsp; When we find one:<br>
+<ul>
+  <li>&nbsp;add 1 to voxel_in_roi count</li>
+  <li>take absolute value of activation, add to activation_in_roi<br>
+  </li>
+</ul>
+4) Set these voxels = 0 and look for remaining activation (activation
+in component image outside of template) .&nbsp; When we find one:<br>
+<ul>
+  <li>add 1 to voxel_out_roi count</li>
+  <li>take absolute value of activation, add to activation_out_roi<br>
+  </li>
+</ul>
+5) Subtract average activation per voxel outside of template from average activation per voxel inside template.<br>
+6) Rank these scores in descending order to get best --&gt; worst matches<br>
+<br>
+<span style="font-family: Courier New,Courier,monospace;"><font size="+1"><span style="font-family: monospace;"></span></font><span style="font-weight: bold;">ICA: <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh1V/report.html" target="_blank">1</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh2V/report.html" target="_blank">2</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh3V/report.html" target="_blank">3</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh4V/report.html">4</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh5V/report.html">5</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh6V/report.html">6</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh7V/report.html" target="_blank">7</a> <a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh8V/report.html">8</a>
+<a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh9V/report.html">9</a>
+<a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh10V/report.html">10</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh11V/report.html" target="_blank">11</a> <a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh12V/report.html">12</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh13V/report.html" target="_blank">13</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh14V/report.html" target="_blank">14</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh15V/report.html" target="_blank">15</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh16V/report.html" target="_blank">16</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh17V/report.html" target="_blank">17</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh18V/report.html" target="_blank">18</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh19V/report.html" target="_blank">19</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh20V/report.html" target="_blank">20</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh21V/report.html" target="_blank">21</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh22V/report.html" target="_blank">22</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh23V/report.html" target="_blank">23</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh24V/report.html" target="_blank">24</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh25V/report.html" target="_blank">25</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh26V/report.html" target="_blank">26</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh27V/report.html" target="_blank">27</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh28V/report.html" target="_blank">28</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh29V/report.html" target="_blank">29</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh30V/report.html" target="_blank">30</a><br>
+<br>
+Method 2</span><br>
+<br>
+</span>1) Identify voxels in template<br>
+
+
+
+2) Convert to MNI coordinates<br>
+
+3) Look for activation in these voxels of each component to match.&nbsp; When we find one:<br>
+
+<ul>
+<li>&nbsp;add 1 to voxel_in_roi count</li><li>Add activation to activation_in_roi<br>
+  </li>
+</ul>
+
+4) Set these voxels = 0 and look for remaining activation (activation
+in component image outside of template) .&nbsp; When we find one:<br>
+
+<ul>
+<li>add 1 to voxel_out_roi count</li><li>Add activation to activation_out_roi<br>
+  </li>
+</ul>
+
+5) Subtract average avtivation per voxel outside of template from average activation per voxel inside template.<br>
+6) Take absolute value of this difference to get ranking score, in descending order is best --&gt; worst matches<br>
+
+<span style="font-family: Courier New,Courier,monospace;"><br>
+</span><span style="font-family: Courier New,Courier,monospace;"><span style="font-weight: bold;">ICA: <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh1K/report.html" target="_blank">1</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh2K/report.html" target="_blank">2</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh3K/report.html" target="_blank">3</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh4K/report.html">4</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh5K/report.html">5</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh6K/report.html">6</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh7K/report.html" target="_blank">7</a> <a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh8K/report.html">8</a>
+<a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh9K/report.html">9</a>
+<a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh10K/report.html">10</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh11K/report.html" target="_blank">11</a> <a target="_blank" href="http://www.vbmis.com/bmi/project/pyCorr/thresh12K/report.html">12</a>
+<a href="http://www.vbmis.com/bmi/project/pyCorr/thresh13K/report.html" target="_blank">13</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh14K/report.html" target="_blank">14</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh15K/report.html" target="_blank">15</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh16K/report.html" target="_blank">16</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh17K/report.html" target="_blank">17</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh18K/report.html" target="_blank">18</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh19K/report.html" target="_blank">19</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh20K/report.html" target="_blank">20</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh21K/report.html" target="_blank">21</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh22K/report.html" target="_blank">22</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh23K/report.html" target="_blank">23</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh24K/report.html" target="_blank">24</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh25K/report.html" target="_blank">25</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh26K/report.html" target="_blank">26</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh27K/report.html" target="_blank">27</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh28K/report.html" target="_blank">28</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh29K/report.html" target="_blank">29</a> <a href="http://www.vbmis.com/bmi/project/pyCorr/thresh30K/report.html" target="_blank">30</a></span></span><br>
+
+<span style="font-weight: bold;"><br>
+**</span> Note that there are
+30 components for the group map, and only 25 for each individual, which
+was a mistake on my part.&nbsp; I am not sure if this will influence
+the matching.<br>
+
+<br>
+</body></html>
